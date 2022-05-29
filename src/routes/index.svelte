@@ -1,6 +1,12 @@
 <script>
     import logo from '$lib/download.gif';
+    import Tabs from "../lib/Tabs.svelte";
     import Display from "../lib/Display.svelte";
+    import Enchantments from "../lib/Enchantments.svelte";
+    import Attributes from "../lib/Attributes.svelte";
+
+    let items = ['Display', 'Enchantments', 'Attributes']
+    let activeItem = 'Display'
 
     let item = ''
     let itemName = ''
@@ -8,6 +14,10 @@
 
     let from = 0
     let to = 100
+
+    const tabChange = e => {
+        activeItem = e.detail
+    }
 </script>
 
 <div class="container mx-auto">
@@ -32,16 +42,17 @@
                 </div>                
             </div>
             
-
-            <div class="tabs mt-4">
-                <button class="tab tab-lifted tab-active">Display</button>
-                <button class="tab tab-lifted">Enchantments</button>
-                <button disabled class="tab tab-lifted disabled:cursor-default disabled:hover:bg-none disabled:hover:text-gray-500">Attributes</button>
-            </div>
+            <Tabs {items} {activeItem} on:tabChange={tabChange}/>
 
             <div class="bg-base-100 p-4 border-base-300 border flex flex-col rounded-b-xl rounded-tr-xl">
                 
-                <Display bind:itemName={itemName} bind:itemLore={itemLore} bind:item={item}/>
+                {#if activeItem === 'Display'}
+                    <Display bind:itemName={itemName} bind:itemLore={itemLore} bind:item={item} />
+                {:else if activeItem === 'Enchantments'}
+                    <Enchantments />
+                {:else if activeItem === 'Attributes'}
+                    <Attributes />
+                {/if}
 
                 <textarea type="text" class="input input-bordered w-full rounded-lg mt-4 font-mono h-32" disabled>{`defineItemType(${from}, ${to}, ${item}); defineEnchantPattern(${from}, ${to}, "Sharpness", 2, 100, 1, 2); defineItemName(${from}, ${to}, "${itemName}"); defineItemLore(${from}, ${to}, "${itemLore}", 1, true)`.split('; ').join('\n')}</textarea> 
 
