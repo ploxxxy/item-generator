@@ -7,9 +7,9 @@ const config = {
   },
 
   plugins: [require('daisyui')],
-  // daisyui: {
-  //   themes: ['cupcake', 'night']
-  // },
+  daisyui: {
+    themes: ['corporate']
+  },
 };
 
 module.exports = config;
