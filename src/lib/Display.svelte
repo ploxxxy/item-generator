@@ -1,9 +1,10 @@
 <script>
     import Modal from "$lib/Modal.svelte"
 
-    export let item;
-    export let itemName = ''
-    export let itemLore = ''
+    export let item
+    export let itemName
+    export let itemLore
+    export let roman
 </script>
 
 <div class="flex">
@@ -18,7 +19,10 @@
         <div class="form-control">
             <label for="lore" class="label">
                 <span class="label-text">Item Lore</span>
-                <Modal placeholder=1/>
+                <div>
+                    <input type="checkbox" bind:checked={roman} class="checkbox checkbox-xs tooltip" data-tip="Use Roman numerals? (8 = VII)" />
+                    <Modal placeholder=1/>
+                </div>
             </label>
             <textarea bind:value={itemLore} name="lore" class="textarea textarea-bordered h-48" />
         </div>

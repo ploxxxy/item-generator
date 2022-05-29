@@ -1,36 +1,57 @@
 <script>
-    import Modal from "$lib/Modal.svelte"
 
-    export let item;
-    export let itemName = ''
-    export let itemLore = ''
+    function Enchantment(name, min, max, increase, every, id) {
+        this.name = name
+        this.min = min
+        this.max = max
+        this.increase = increase
+        this.every = every
+        this.id = id
+    }
+
+    export let enchantments
+
+    const addEnchantment = () => {
+        enchantments.push(new Enchantment('Enchantment', 0, 100, 1, 5, enchantments.length))
+        enchantments = enchantments
+    }
+
+    function deleteEnchantment(index) {
+        enchantments.splice(index, 1)
+        enchantments = enchantments
+    }
 </script>
 
 <div class="flex">
-    <div class="flex flex-col w-full mx-2">
-        <div class="form-control">
-            <label for="name" class="label">
-                <span class="label-text">Item Name</span>
-                <Modal placeholder=0/>
-            </label>
-            <input bind:value={itemName} name="name" type="text" class="input input-bordered" />
-        </div>
-        <div class="form-control">
-            <label for="lore" class="label">
-                <span class="label-text">Item Lore</span>
-                <Modal placeholder=1/>
-            </label>
-            <textarea bind:value={itemLore} name="lore" class="textarea textarea-bordered h-48" />
-        </div>
-    </div>
-    
-    <div class="w-full bg-neutral text-neutral-content mx-2 p-4 rounded-lg">
-        <div class="bg-minecraft flex flex-col p-3 rounded text-minecraft">
-            <span class="minecraft-aqua">{itemName ? itemName : item ? item : 'Stone'}</span>
-            {#each itemLore.split("\n") as lore}
-                <span class="minecraft-dark-purple">{lore}</span>
-            {/each}
-            <span class="lowercase minecraft-dark-gray">minecraft:{item ? item : 'stone'}</span>
-        </div>
+    <div class="flex flex-col w-full mx-2 items-center">
+        
+        {#each enchantments as enchantment}
+            <div class="flex my-2">
+                <input type="text" bind:value={enchantment.name} class="input input-bordered input-sm mx-2" />
+
+                <div class="form-control mx-2">
+                    <label class="input-group input-group-sm">
+                        <span>min level</span>
+                        <input bind:value={enchantment.min} type="number" class="input input-bordered input-sm w-16" />
+                        <span>max level</span>
+                        <input bind:value={enchantment.max} type="number" class="input input-bordered input-sm w-16" />
+                    </label>
+                </div>       
+
+                <div class="form-control mx-2">
+                    <label class="input-group input-group-sm">
+                        <span>increase by</span>
+                        <input bind:value={enchantment.increase} type="number" class="input input-bordered input-sm w-16" />
+                        <span>every</span>
+                        <input bind:value={enchantment.every} type="number" class="input input-bordered input-sm w-16" />
+                        <span>levels</span>
+                    </label>
+                </div>
+                
+                <button class="btn btn-sm btn-square btn-error" on:click={deleteEnchantment(enchantment)}>x</button>
+            </div>
+        {/each}
+
+        <button class="btn w-48 btn-sm my-2" on:click={addEnchantment}>+ Add Enchantment</button>
     </div>
 </div>

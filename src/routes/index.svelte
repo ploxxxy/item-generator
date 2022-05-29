@@ -8,17 +8,31 @@
     let items = ['Display', 'Enchantments', 'Attributes']
     let activeItem = 'Display'
 
-    let item = ''
+    let item = 'stone'
     let itemName = ''
     let itemLore = ''
+    let roman = true
 
     let from = 0
     let to = 100
 
+    let enchantments = []
+
     const tabChange = e => {
         activeItem = e.detail
     }
+
+    // setInterval(() => {
+    //     console.log(enchantments)
+    // }, 1000);
+
+    const beforeUnload = e => {
+        e.preventDefault()
+        e.returnValue = ''
+    }
 </script>
+
+<svelte:window on:beforeunload={beforeUnload}/> 
 
 <div class="container mx-auto">
     test
@@ -47,14 +61,27 @@
             <div class="bg-base-100 p-4 border-base-300 border flex flex-col rounded-b-xl rounded-tr-xl">
                 
                 {#if activeItem === 'Display'}
-                    <Display bind:itemName={itemName} bind:itemLore={itemLore} bind:item={item} />
+                    <Display bind:itemName={itemName} bind:itemLore={itemLore} bind:item={item} bind:roman={roman}/>
                 {:else if activeItem === 'Enchantments'}
-                    <Enchantments />
+                    <Enchantments bind:enchantments={enchantments}/>
                 {:else if activeItem === 'Attributes'}
                     <Attributes />
                 {/if}
 
-                <textarea type="text" class="input input-bordered w-full rounded-lg mt-4 font-mono h-32" disabled>{`defineItemType(${from}, ${to}, ${item}); defineEnchantPattern(${from}, ${to}, "Sharpness", 2, 100, 1, 2); defineItemName(${from}, ${to}, "${itemName}"); defineItemLore(${from}, ${to}, "${itemLore}", 1, true)`.split('; ').join('\n')}</textarea> 
+                <!-- <textarea type="text" class="input input-bordered w-full rounded-lg mt-4 font-mono h-32" disabled> -->
+                <ul class="input input-bordered w-full rounded-lg mt-4 font-mono h-32 overflow-scroll">
+                    <li><span>defineItemType({from}, {to}, {item})</span></li>
+                    {#if itemName}
+                        <li><span>defineItemName({from}, {to}, "{itemName}")</span></li>
+                    {/if}
+                    {#if itemLore}
+                        <li><span>defineItemLore({from}, {to}, ("{itemLore.split('\n').join('" and "')}"), {roman})</span></li>
+                    {/if}
+                    {#each enchantments as enchantment}
+                        <li><span>defineEnchantPattern({from}, {to}, "{enchantment.name}", {enchantment.min}, {enchantment.max}, {enchantment.increase}, {enchantment.every})</span></li>
+                    {/each}
+                </ul>
+                <!-- </textarea>  -->
 
             </div>
               
