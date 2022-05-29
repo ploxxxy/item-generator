@@ -20,7 +20,7 @@
             <label for="lore" class="label">
                 <span class="label-text">Item Lore</span>
                 <div>
-                    <input type="checkbox" bind:checked={roman} class="checkbox checkbox-xs tooltip" data-tip="Use Roman numerals? (8 = VII)" />
+                    <input type="checkbox" bind:checked={roman} class="checkbox checkbox-xs tooltip" data-tip="Use Roman numerals? (8 = VIII)" />
                     <Modal placeholder=1/>
                 </div>
             </label>
