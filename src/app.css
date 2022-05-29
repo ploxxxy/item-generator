@@ -7,94 +7,79 @@
     font-family: 'Minecraft';
     src: url('http://fontsforweb.com/public/fonts/1412/minecraftfont.ttf');
 }
-  .minecraft-black {
+.minecraft-black {
     color: #000000;
     text-shadow: 2px 2px 0 #000000;
-  }
-  
-  .minecraft-dark-blue {
+}
+.minecraft-dark-blue {
     color: #0000aa;
     text-shadow: 2px 2px 0 #00002a;
-  }
-  
-  .minecraft-dark-green {
+}
+.minecraft-dark-green {
     color: #00aa00;
     text-shadow: 2px 2px 0 #002a00;
-  }
-  
-  .minecraft-dark-aqua {
+}
+.minecraft-dark-aqua {
     color: #00aaaa;
     text-shadow: 2px 2px 0 #002a2a;
-  }
-  
-  .minecraft-dark-red {
+}
+.minecraft-dark-red {
     color: #aa0000;
     text-shadow: 2px 2px 0 #2a0000;
-  }
-  
-  .minecraft-dark-purple {
+}
+.minecraft-dark-purple {
     color: #aa00aa;
     text-shadow: 2px 2px 0 #2a002a;
-  }
-  
-  .minecraft-gold {
+}
+.minecraft-gold {
     color: #ffaa00;
     text-shadow: 2px 2px 0 #2a2a00;
-  }
-  
-  .minecraft-gray {
+}
+.minecraft-gray {
     color: #aaaaaa;
     text-shadow: 2px 2px 0 #2a2a2a;
-  }
-  
-  .minecraft-dark-gray {
+}
+.minecraft-dark-gray {
     color: #555555;
     text-shadow: 2px 2px 0 #151515;
-  }
-  
-  .minecraft-blue {
+}
+.minecraft-blue {
     color: #5555ff;
     text-shadow: 2px 2px 0 #15153f;
-  }
-  
-  .minecraft-green {
+}
+.minecraft-green {
     color: #55ff55;
     text-shadow: 2px 2px 0 #153f15;
-  }
-  
-  .minecraft-aqua {
+}
+.minecraft-aqua {
     color: #55ffff;
     text-shadow: 2px 2px 0 #153f3f;
-  }
-  
-  .minecraft-red {
+}
+.minecraft-red {
     color: #ff5555;
     text-shadow: 2px 2px 0 #3f1515;
-  }
-  
-  .minecraft-light-purple {
+}
+.minecraft-light-purple {
     color: #ff55ff;
     text-shadow: 2px 2px 0 #3f153f;
-  }
-  
-  .minecraft-yellow {
+}
+.minecraft-yellow {
     color: #ffff55;
     text-shadow: 2px 2px 0 #3f3f15;
-  }
-  
-  .minecraft-white {
+}
+.minecraft-white {
     color: #ffffff;
     text-shadow: 2px 2px 0 #3f3f3f;
-  }
+}
 
-  .text-minecraft {
-      font-family: 'Minecraft';
-  }
+.text-minecraft {
+    font-family: 'Minecraft';
+}
 
-  .bg-minecraft {
-      background: #1a0c1c;
-      border: 4px solid #26094b;
-      outline: 4px solid #1a0c1c;
-      outline-offset: -1px;
-      font-size: 14px;
-    }
+.bg-minecraft {
+    background: #1a0c1c;
+    border: 4px solid #26094b;
+    outline: 4px solid #1a0c1c;
+    outline-offset: -1px;
+    font-size: 14px;
+}

@@ -7,8 +7,8 @@
     export let roman
 </script>
 
-<div class="flex">
-    <div class="flex flex-col w-full mx-2">
+<div class="flex flex-wrap md:flex-nowrap gap-4">
+    <div class="flex flex-col w-full">
         <div class="form-control">
             <label for="name" class="label">
                 <span class="label-text">Item Name</span>
@@ -28,7 +28,7 @@
         </div>
     </div>
     
-    <div class="w-full bg-neutral text-neutral-content mx-2 p-4 rounded-lg">
+    <div class="w-full bg-neutral text-neutral-content p-4 rounded-md">
         <div class="bg-minecraft flex flex-col p-3 rounded text-minecraft">
             <span class="minecraft-aqua">{itemName ? itemName : item ? item : 'Stone'}</span>
             {#each itemLore.split("\n") as lore}
