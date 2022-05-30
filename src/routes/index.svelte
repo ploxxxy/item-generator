@@ -14,7 +14,7 @@
     let itemLore = ''
     let roman = true
 
-    let from = 1
+    let from = 0
     let to = 100
 
     let attributes = []
