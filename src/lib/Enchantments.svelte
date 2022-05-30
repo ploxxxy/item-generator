@@ -15,6 +15,7 @@
     const addEnchantment = () => {
         enchantments.push(new Enchantment('Aqua Affinity', 0, 100, 1, 5, enchantments.length))
         enchantments = enchantments
+        console.log(enchantments)
     }
 
     function deleteEnchantment(index) {
@@ -88,7 +89,7 @@
                 </label>
             </div>
             
-            <button class="btn btn-sm btn-error " on:click={deleteEnchantment(enchantment)}>❌</button>
+            <button class="btn btn-sm btn-error " on:click={deleteEnchantment(enchantment.id)}>❌</button>
         </div>
     {/each}
 

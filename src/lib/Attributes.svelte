@@ -78,7 +78,7 @@
                 </label>
             </div>
             
-            <button class="btn btn-sm btn-error font-mono" on:click={deleteAttribute(attribute)}>❌</button>
+            <button class="btn btn-sm btn-error font-mono" on:click={deleteAttribute(attribute.id)}>❌</button>
         </div>
     {/each}
 
