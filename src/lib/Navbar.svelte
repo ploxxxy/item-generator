@@ -19,5 +19,6 @@
     </div> -->
     <div class="navbar-end">
         <a href="https://github.com/ploxxxy/item-generator/issues/new" target="_blank" class="btn btn-sm btn-error normal-case">Report an issue</a>
+        <a href="https://github.com/ploxxxy/item-generator/wiki" target="_blank" class="btn btn-sm btn-info normal-case">Confused? Read here</a>
     </div>
   </div>
